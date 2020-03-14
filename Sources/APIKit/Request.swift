@@ -155,3 +155,11 @@ public extension JSONRequest {
         return JSONDataParser(readingOptions: [])
     }
 }
+
+public protocol RawJSONRequest: Request { }
+
+public extension RawJSONRequest {
+    var dataParser: JSONRawDataParser {
+        return JSONRawDataParser()
+    }
+}
