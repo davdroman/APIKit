@@ -10,18 +10,28 @@ struct TestRequest: JSONRequest {
     // MARK: Request
     typealias Response = Any
 
-    init(baseURL: String = "https://example.com", path: String = "/", method: HTTPMethod = .get, parameters: Any? = [:], headerFields: [String: String] = [:], interceptURLRequest: @escaping (URLRequest) throws -> URLRequest = { $0 }) {
-        self.baseURL = URL(string: baseURL)!
+    init(
+        host: String = "example.com",
+        pathPrefix: String = "",
+        path: String = "/",
+        method: HTTPMethod = .get,
+        parameters: Any? = [:],
+        headerFields: [String: String] = [:],
+        interceptURLRequest: @escaping (URLRequest) throws -> URLRequest = { $0 }
+    ) {
+        self.host = host
         self.path = path
+        self.pathPrefix = pathPrefix
         self.method = method
         self.parameters = parameters
         self.headerFields = headerFields
         self.interceptURLRequest = interceptURLRequest
     }
 
-    let baseURL: URL
+    let host: String
     let method: HTTPMethod
     let path: String
+    let pathPrefix: String
     let parameters: Any?
     let headerFields: [String: String]
     let interceptURLRequest: (URLRequest) throws -> URLRequest

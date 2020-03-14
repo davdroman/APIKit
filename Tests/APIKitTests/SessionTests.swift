@@ -177,8 +177,8 @@ class SessionTests: XCTestCase {
     struct AnotherTestRequest: JSONRequest {
         typealias Response = Void
 
-        var baseURL: URL {
-            return URL(string: "https://example.com")!
+        var host: String {
+            return "example.com"
         }
 
         var method: HTTPMethod {

@@ -12,11 +12,17 @@ public protocol Request {
     associatedtype Response
     associatedtype DataParser: APIKit.DataParser
 
-    /// The base URL.
-    var baseURL: URL { get }
+    // The URL scheme.
+    var scheme: String { get }
+
+    // The host URL component.
+    var host: String { get }
 
     /// The HTTP request method.
     var method: HTTPMethod { get }
+
+    /// A prefix path for `path` (i.e. `"/v1"`).
+    var pathPrefix: String { get }
 
     /// The path URL component.
     var path: String { get }
@@ -62,6 +68,14 @@ public protocol Request {
 }
 
 public extension Request {
+    var scheme: String {
+        return "https"
+    }
+
+    var pathPrefix: String {
+        return ""
+    }
+
     var parameters: Any? {
         return nil
     }
@@ -105,9 +119,12 @@ public extension Request {
     /// Builds `URLRequest` from properties of `self`.
     /// - Throws: `RequestError`, `Error`
     func buildURLRequest() throws -> URLRequest {
-        let url = path.isEmpty ? baseURL : baseURL.appendingPathComponent(path)
-        guard var components = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
-            throw RequestError.invalidBaseURL(baseURL)
+        var components = URLComponents()
+        components.scheme = scheme
+        components.host = host
+        components.path = pathPrefix + path//(!path.isEmpty && !path.hasPrefix("/") ? "/" + path : path)
+        guard let url = components.url else {
+            throw RequestError.invalidURLComponents(components)
         }
 
         var urlRequest = URLRequest(url: url)
