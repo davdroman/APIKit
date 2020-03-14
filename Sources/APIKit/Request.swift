@@ -74,6 +74,11 @@ public extension Request {
         return URLEncodedQueryParameters(parameters: parameters)
     }
 
+    @available(iOS, introduced: 13.0)
+    var dataParser: some APIKit.DataParser {
+        return JSONDataParser(readingOptions: [])
+    }
+
     var bodyParameters: BodyParameters? {
         guard let parameters = parameters, !method.prefersQueryParameters else {
             return nil
