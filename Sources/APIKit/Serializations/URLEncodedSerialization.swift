@@ -89,7 +89,7 @@ public final class URLEncodedSerialization {
 
     /// Returns urlencoded `String` from the dictionary.
     public static func string(from dictionary: [String: Any]) -> String {
-        let pairs = dictionary.map { key, value -> String in
+        let pairs = dictionary.sorted(by: { $0.key < $1.key }).map { key, value -> String in
             if value is NSNull {
                 return "\(escape(key))"
             }
