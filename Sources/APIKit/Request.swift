@@ -67,7 +67,7 @@ public extension Request {
     }
 
     var queryParameters: QueryParameters? {
-        guard let parameters = parameters, method.prefersQueryParameters else {
+        guard let parameters = parameters as? [String: Any], method.prefersQueryParameters else {
             return nil
         }
 
