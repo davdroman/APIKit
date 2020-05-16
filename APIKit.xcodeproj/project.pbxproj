@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		03B71320241D58BD00DED025 /* JSONRawDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B7131F241D58BD00DED025 /* JSONRawDataParser.swift */; };
 		03B71322241D5DED00DED025 /* DecodableRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B71321241D5DED00DED025 /* DecodableRequest.swift */; };
+		03B1983424704D80005529EB /* JSONEncodableBodyParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B1983324704D80005529EB /* JSONEncodableBodyParameters.swift */; };
 		0ED17E891E229EC700EC1114 /* QueryParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED17E881E229EC700EC1114 /* QueryParameters.swift */; };
 		0ED17E8B1E22A22900EC1114 /* URLEncodedQueryParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED17E8A1E22A22900EC1114 /* URLEncodedQueryParameters.swift */; };
 		0ED17E8E1E22AC8300EC1114 /* URLEncodedQueryParametersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED17E8D1E22AC8300EC1114 /* URLEncodedQueryParametersTests.swift */; };
@@ -83,6 +84,7 @@
 /* Begin PBXFileReference section */
 		03B7131F241D58BD00DED025 /* JSONRawDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JSONRawDataParser.swift; path = Sources/APIKit/DataParser/JSONRawDataParser.swift; sourceTree = SOURCE_ROOT; };
 		03B71321241D5DED00DED025 /* DecodableRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DecodableRequest.swift; path = APIKit/DecodableRequest.swift; sourceTree = "<group>"; };
+		03B1983324704D80005529EB /* JSONEncodableBodyParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JSONEncodableBodyParameters.swift; path = Sources/APIKit/BodyParameters/JSONEncodableBodyParameters.swift; sourceTree = SOURCE_ROOT; };
 		0ED17E881E229EC700EC1114 /* QueryParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryParameters.swift; sourceTree = "<group>"; };
 		0ED17E8A1E22A22900EC1114 /* URLEncodedQueryParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLEncodedQueryParameters.swift; sourceTree = "<group>"; };
 		0ED17E8D1E22AC8300EC1114 /* URLEncodedQueryParametersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLEncodedQueryParametersTests.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				7F7048DA1D9D89FB003C99F6 /* Data+InputStream.swift */,
 				7F7048DB1D9D89FB003C99F6 /* FormURLEncodedBodyParameters.swift */,
 				7F7048DC1D9D89FB003C99F6 /* JSONBodyParameters.swift */,
+				03B1983324704D80005529EB /* JSONEncodableBodyParameters.swift */,
 				7F7048DD1D9D89FB003C99F6 /* MultipartFormDataBodyParameters.swift */,
 				ECA8314B1DE4E677004EB1B5 /* ProtobufBodyParameters.swift */,
 				7F7048D81D9D89FB003C99F6 /* AbstractInputStream.m */,
@@ -506,6 +509,7 @@
 				7F7048D71D9D89F2003C99F6 /* URLSessionAdapter.swift in Sources */,
 				7F7048EB1D9D8A08003C99F6 /* StringDataParser.swift in Sources */,
 				7F7048CF1D9D89BE003C99F6 /* HTTPMethod.swift in Sources */,
+				03B1983424704D80005529EB /* JSONEncodableBodyParameters.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
