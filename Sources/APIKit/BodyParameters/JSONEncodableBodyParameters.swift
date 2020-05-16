@@ -22,6 +22,9 @@ public struct JSONEncodableBodyParameters<E: Encodable>: BodyParameters {
 
     public func buildEntity() throws -> RequestBodyEntity {
         let encoder = JSONEncoder()
+        if #available(iOS 11.0, *) {
+            encoder.outputFormatting = .sortedKeys
+        }
         encoder.dateEncodingStrategy = dateEncodingStrategy
         let objectData = try encoder.encode(object)
         return .data(objectData)
