@@ -4,6 +4,8 @@ import Foundation
 public class JSONRawDataParser: DataParser {
     // MARK: - DataParser
 
+    public init() {}
+
     /// Value for `Accept` header field of HTTP request.
     public var contentType: String? {
         return "application/json"
