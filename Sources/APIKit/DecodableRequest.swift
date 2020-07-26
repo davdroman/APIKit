@@ -5,7 +5,7 @@ import Foundation
 import Combine
 
 @available(iOS 13, *)
-public protocol DecodableRequest: RawJSONRequest where Response: Decodable {
+public protocol DecodableRequest: RawJSONRequest {
     associatedtype Error: Swift.Error, Decodable
     associatedtype Decoder: TopLevelDecoder where Decoder.Input == Data
     var decoder: Decoder { get }
@@ -24,10 +24,18 @@ public extension DecodableRequest {
         }
         return object
     }
+}
 
+@available(iOS 13, *)
+public extension DecodableRequest where Response: Decodable {
     func response(from object: Data, urlResponse: HTTPURLResponse) throws -> Response {
         try decoder.decode(Response.self, from: object)
     }
+}
+
+@available(iOS 13, *)
+public extension DecodableRequest where Response == Void {
+    func response(from object: Data, urlResponse: HTTPURLResponse) throws -> Response { () }
 }
 
 public protocol DecodableJSONRequest: DecodableRequest where Decoder == JSONDecoder {}
