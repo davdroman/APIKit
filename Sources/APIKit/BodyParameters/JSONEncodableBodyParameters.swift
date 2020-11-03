@@ -8,7 +8,7 @@ public struct JSONEncodableBodyParameters<E: Encodable>: BodyParameters {
     public let dateEncodingStrategy: JSONEncoder.DateEncodingStrategy
 
     /// Returns `JSONEncodableBodyParameters` that is initialized with JSON object and writing options.
-    public init(object: E, dateEncodingStrategy: JSONEncoder.DateEncodingStrategy = .millisecondsSince1970) {
+    public init(object: E, dateEncodingStrategy: JSONEncoder.DateEncodingStrategy) {
         self.object = object
         self.dateEncodingStrategy = dateEncodingStrategy
     }
