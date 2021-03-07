@@ -38,8 +38,10 @@ public extension DecodableRequest where Response == Void {
     func response(from object: Data, urlResponse: HTTPURLResponse) throws -> Response { () }
 }
 
+@available(iOS 13, *)
 public protocol DecodableJSONRequest: DecodableRequest where Decoder == JSONDecoder {}
 
+@available(iOS 13, *)
 public extension DecodableJSONRequest {
     var decoder: Decoder { JSONDecoder() }
 }
