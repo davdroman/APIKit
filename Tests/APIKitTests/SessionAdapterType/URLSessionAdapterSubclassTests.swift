@@ -59,7 +59,7 @@ class URLSessionAdapterSubclassTests: XCTestCase {
     // Limitation: 'urlSession:task:didSendBodyData:totalBytesSent:totalBytesExpectedToSend:' delegate method will never be called when you stub the request using subclass of URLProtocol.
     func testDelegateProgressMethodCall() {
         let expectation = self.expectation(description: "wait for response")
-        let request = TestRequest(host: "httpbin.org", path: "/post", method: .post)
+        let request = TestRequest(baseURL: "https://httpbin.org", path: "/post", method: .post)
         let configuration = URLSessionConfiguration.default
         let adapter = SessionAdapter(configuration: configuration)
         let session = Session(adapter: adapter)
